@@ -2,14 +2,15 @@ package com.ian.javatospring01.order;
 
 import com.ian.javatospring01.discount.DiscountPolicy;
 import com.ian.javatospring01.discount.FixDiscountPolicy;
-import com.ian.javatospring01.member.Grade;
+import com.ian.javatospring01.discount.RateDiscountPolicy;
 import com.ian.javatospring01.member.Member;
 import com.ian.javatospring01.member.MemberRepository;
 import com.ian.javatospring01.member.MemoryMemberRepository;
 
 public class OderServiceImpl implements OrderService {
     MemberRepository memberRepository = new MemoryMemberRepository();
-    DiscountPolicy discountPolicy = new FixDiscountPolicy();
+//    DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     @Override
     public Order createOrder(Long memberId, String productName, int productPrice) {
